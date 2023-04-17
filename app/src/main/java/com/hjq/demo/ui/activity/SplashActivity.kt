@@ -51,7 +51,7 @@ class SplashActivity : AppActivity() {
                 it.visibility = View.INVISIBLE
             }
         }
-
+        debugView?.visibility = View.GONE
         if (true) {
             return
         }

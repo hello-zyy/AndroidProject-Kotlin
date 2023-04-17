@@ -19,6 +19,7 @@ import com.hjq.demo.http.model.RequestHandler
 import com.hjq.demo.http.model.RequestServer
 import com.hjq.demo.manager.ActivityManager
 import com.hjq.demo.other.*
+import com.hjq.demo.ui.utils.WpkSPUtil
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.http.EasyConfig
 import com.hjq.http.config.IRequestApi
@@ -44,7 +45,9 @@ class AppApplication : Application() {
     @Log("启动耗时")
     override fun onCreate() {
         super.onCreate()
+        sInstance = this
         initSdk(this)
+        WpkSPUtil.getInstance(this, packageName.toString() + "_user_sp")
     }
 
     override fun onLowMemory() {
@@ -60,6 +63,11 @@ class AppApplication : Application() {
     }
 
     companion object {
+        lateinit var sInstance: Context
+
+        fun getAppContext(): Context {
+            return sInstance
+        }
 
         /**
          * 初始化一些第三方框架
@@ -69,11 +77,16 @@ class AppApplication : Application() {
             TitleBar.setDefaultStyle(TitleBarStyle())
 
             // 设置全局的 Header 构建器
-            SmartRefreshLayout.setDefaultRefreshHeaderCreator{ context: Context, layout: RefreshLayout ->
-                MaterialHeader(context).setColorSchemeColors(ContextCompat.getColor(context, R.color.common_accent_color))
+            SmartRefreshLayout.setDefaultRefreshHeaderCreator { context: Context, layout: RefreshLayout ->
+                MaterialHeader(context).setColorSchemeColors(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.common_accent_color
+                    )
+                )
             }
             // 设置全局的 Footer 构建器
-            SmartRefreshLayout.setDefaultRefreshFooterCreator{ context: Context, layout: RefreshLayout ->
+            SmartRefreshLayout.setDefaultRefreshFooterCreator { context: Context, layout: RefreshLayout ->
                 SmartBallPulseFooter(context)
             }
             // 设置全局初始化器
@@ -146,9 +159,11 @@ class AppApplication : Application() {
             }
 
             // 注册网络状态变化监听
-            val connectivityManager: ConnectivityManager? = ContextCompat.getSystemService(application, ConnectivityManager::class.java)
+            val connectivityManager: ConnectivityManager? =
+                ContextCompat.getSystemService(application, ConnectivityManager::class.java)
             if (connectivityManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                connectivityManager.registerDefaultNetworkCallback(object : ConnectivityManager.NetworkCallback() {
+                connectivityManager.registerDefaultNetworkCallback(object :
+                    ConnectivityManager.NetworkCallback() {
                     override fun onLost(network: Network) {
                         val topActivity: Activity? = ActivityManager.getInstance().getTopActivity()
                         if (topActivity !is LifecycleOwner) {
@@ -163,5 +178,6 @@ class AppApplication : Application() {
                 })
             }
         }
+
     }
 }

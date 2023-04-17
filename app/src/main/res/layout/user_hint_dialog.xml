@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/user_oval_bg">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:tag="@string/gotham_bold"
+        android:textColor="@color/text_color_3D3A44"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="22dp"
+        android:background="@color/text_color_e0e0e0"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:tag="@string/gotham_bold"
+        android:text="@string/cancel"
+        android:textColor="@color/text_color_7D7D7D"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_bottom_line"
+        app:layout_constraintTop_toBottomOf="@+id/tv_line" />
+
+    <TextView
+        android:id="@+id/tv_bottom_line"
+        android:layout_width="1px"
+        android:layout_height="44dp"
+        android:background="@color/text_color_E0E0E0"
+        android:tag="@string/gotham_bold"
+        app:layout_constraintLeft_toRightOf="@+id/tv_cancel"
+        app:layout_constraintRight_toLeftOf="@+id/tv_done"
+        app:layout_constraintTop_toBottomOf="@+id/tv_line" />
+
+    <TextView
+        android:id="@+id/tv_done"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:tag="@string/gotham_bold"
+        android:text="@string/confirm_detele"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_bottom_line"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_line" />
+</androidx.constraintlayout.widget.ConstraintLayout>

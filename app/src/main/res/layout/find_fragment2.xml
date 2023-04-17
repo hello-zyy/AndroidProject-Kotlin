@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_add_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_fafafa">
+
+    <TextView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="10dp"
+        android:text="@string/add_product_info"
+        android:textColor="@color/text_color_353535"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/rl_add_product"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/user_round_default_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_add_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/user_icon_add"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_add_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_add_icon"
+                android:layout_marginTop="10dp"
+                android:tag="@string/gotham_bold"
+                android:text="@string/add_product_icon"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_select_icon"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ed_product_describe"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="5dp"
+        android:background="@null"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:hint="@string/product_info"
+        android:imeOptions="actionDone"
+        android:paddingStart="16.5dp"
+        android:paddingEnd="0dp"
+        android:singleLine="true"
+        android:textColor="@color/common_text_color"
+        android:textColorHint="@color/common_text_hint_color"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/product_describe_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_product_describe" />
+
+    <EditText
+        android:id="@+id/ed_product_label"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginEnd="5dp"
+        android:background="@null"
+        android:ellipsize="end"
+        android:focusable="true"
+        android:hint="@string/product_label"
+        android:imeOptions="actionDone"
+        android:paddingStart="16.5dp"
+        android:paddingEnd="0dp"
+        android:singleLine="true"
+        android:textColor="@color/common_text_color"
+        android:textColorHint="@color/common_text_hint_color"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_product_describe" />
+
+    <View
+        android:id="@+id/label_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_product_label" />
+
+
+    <TextView
+        android:id="@+id/tv_done"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/user_round_btn_purple"
+        android:gravity="center"
+        android:tag="@string/gotham_bold"
+        android:text="@string/start_posting"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_product_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

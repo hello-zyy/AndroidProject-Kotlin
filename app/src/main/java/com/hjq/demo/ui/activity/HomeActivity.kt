@@ -1,7 +1,8 @@
 package com.hjq.demo.ui.activity
 
 import android.app.Activity
-import android.content.*
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -11,11 +12,11 @@ import com.hjq.base.FragmentPagerAdapter
 import com.hjq.demo.R
 import com.hjq.demo.app.AppActivity
 import com.hjq.demo.app.AppFragment
-import com.hjq.demo.manager.*
+import com.hjq.demo.manager.ActivityManager
 import com.hjq.demo.other.DoubleClickHelper
 import com.hjq.demo.ui.adapter.NavigationAdapter
-import com.hjq.demo.ui.fragment.FindFragment
-import com.hjq.demo.ui.fragment.HomeFragment
+import com.hjq.demo.ui.fragment.FindFragment2
+import com.hjq.demo.ui.fragment.HomeFragment2
 import com.hjq.demo.ui.fragment.MessageFragment
 import com.hjq.demo.ui.fragment.MineFragment
 
@@ -33,7 +34,7 @@ class HomeActivity : AppActivity(), NavigationAdapter.OnNavigationListener {
         private const val INTENT_KEY_IN_FRAGMENT_CLASS: String = "fragmentClass"
 
         @JvmOverloads
-        fun start(context: Context, fragmentClass: Class<out AppFragment<*>?>? = HomeFragment::class.java) {
+        fun start(context: Context, fragmentClass: Class<out AppFragment<*>?>? = HomeFragment2::class.java) {
             val intent = Intent(context, HomeActivity::class.java)
             intent.putExtra(INTENT_KEY_IN_FRAGMENT_CLASS, fragmentClass)
             if (context !is Activity) {
@@ -58,8 +59,8 @@ class HomeActivity : AppActivity(), NavigationAdapter.OnNavigationListener {
                 ContextCompat.getDrawable(this@HomeActivity, R.drawable.home_home_selector)))
             addItem(NavigationAdapter.MenuItem(getString(R.string.home_nav_found),
                 ContextCompat.getDrawable(this@HomeActivity, R.drawable.home_found_selector)))
-            addItem(NavigationAdapter.MenuItem(getString(R.string.home_nav_message),
-                ContextCompat.getDrawable(this@HomeActivity, R.drawable.home_message_selector)))
+//            addItem(NavigationAdapter.MenuItem(getString(R.string.home_nav_message),
+//                ContextCompat.getDrawable(this@HomeActivity, R.drawable.home_message_selector)))
             addItem(NavigationAdapter.MenuItem(getString(R.string.home_nav_me),
                 ContextCompat.getDrawable(this@HomeActivity, R.drawable.home_me_selector)))
             setOnNavigationListener(this@HomeActivity)
@@ -69,9 +70,9 @@ class HomeActivity : AppActivity(), NavigationAdapter.OnNavigationListener {
 
     override fun initData() {
         pagerAdapter = FragmentPagerAdapter<AppFragment<*>>(this).apply {
-            addFragment(HomeFragment.newInstance())
-            addFragment(FindFragment.newInstance())
-            addFragment(MessageFragment.newInstance())
+            addFragment(HomeFragment2.newInstance())
+            addFragment(FindFragment2.newInstance())
+//            addFragment(MessageFragment.newInstance())
             addFragment(MineFragment.newInstance())
             viewPager?.adapter = this
         }

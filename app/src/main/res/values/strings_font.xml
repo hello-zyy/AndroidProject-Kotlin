@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gotham_bold" translatable="false">fonts/gotham_bold.ttf</string>
+    <string name="gotham_book" translatable="false">fonts/gotham_book.ttf</string>
+</resources>

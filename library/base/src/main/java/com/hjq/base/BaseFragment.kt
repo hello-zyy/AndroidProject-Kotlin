@@ -56,7 +56,7 @@ abstract class BaseFragment<A : BaseActivity> : Fragment(),
     override fun onResume() {
         super.onResume()
         if (!loading) {
-            loading = true
+//            loading = true
             initData()
             onFragmentResume(true)
             return

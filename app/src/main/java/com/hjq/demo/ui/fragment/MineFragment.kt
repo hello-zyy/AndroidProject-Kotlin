@@ -4,7 +4,8 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.net.Uri
-import android.view.*
+import android.view.View
+import android.widget.TextView
 import com.hjq.base.BaseDialog
 import com.hjq.demo.R
 import com.hjq.demo.aop.SingleClick
@@ -15,8 +16,9 @@ import com.hjq.demo.ui.activity.VideoSelectActivity.OnVideoSelectListener
 import com.hjq.demo.ui.activity.VideoSelectActivity.VideoBean
 import com.hjq.demo.ui.dialog.InputDialog
 import com.hjq.demo.ui.dialog.MessageDialog
+import com.hjq.demo.ui.utils.UserProductUtils
+import com.hjq.demo.ui.utils.UserTitleBarUtil
 import com.tencent.bugly.crashreport.CrashReport
-import java.util.*
 
 /**
  *    author : Android 轮子哥
@@ -33,18 +35,49 @@ class MineFragment : TitleBarFragment<HomeActivity>() {
         }
     }
 
+    private val mTitleBar: TextView? by lazy { findViewById(R.id.title_bar) }
+    private val homeUITv: TextView? by lazy { findViewById(R.id.btn_home_ui) }
+
     override fun getLayoutId(): Int {
         return R.layout.mine_fragment
     }
 
     override fun initView() {
-        setOnClickListener(R.id.btn_mine_dialog, R.id.btn_mine_hint, R.id.btn_mine_login, R.id.btn_mine_register,
-            R.id.btn_mine_forget, R.id.btn_mine_reset, R.id.btn_mine_change, R.id.btn_mine_personal, R.id.btn_mine_setting,
-            R.id.btn_mine_about, R.id.btn_mine_guide, R.id.btn_mine_browser, R.id.btn_mine_image_select, R.id.btn_mine_image_preview,
-            R.id.btn_mine_video_select, R.id.btn_mine_video_play, R.id.btn_mine_crash, R.id.btn_mine_pay)
+        setOnClickListener(
+            R.id.btn_home_ui,
+            R.id.btn_mine_dialog,
+            R.id.btn_mine_hint,
+            R.id.btn_mine_login,
+            R.id.btn_mine_register,
+            R.id.btn_mine_forget,
+            R.id.btn_mine_reset,
+            R.id.btn_mine_change,
+            R.id.btn_mine_personal,
+            R.id.btn_mine_setting,
+            R.id.btn_mine_about,
+            R.id.btn_mine_guide,
+            R.id.btn_mine_browser,
+            R.id.btn_mine_image_select,
+            R.id.btn_mine_image_preview,
+            R.id.btn_mine_video_select,
+            R.id.btn_mine_video_play,
+            R.id.btn_mine_crash,
+            R.id.btn_mine_pay
+        )
     }
 
-    override fun initData() {}
+    override fun initData() {
+        setTitleBar()
+    }
+
+    private fun setTitleBar() {
+        val statusHeight = UserTitleBarUtil.getStatusHeight()
+        mTitleBar?.apply {
+            val lp = this.layoutParams
+            lp.height = statusHeight + UserProductUtils.dp2px(40f)
+            layoutParams = lp
+        }
+    }
 
     @SingleClick
     override fun onClick(view: View) {
@@ -158,12 +191,16 @@ class MineFragment : TitleBarFragment<HomeActivity>() {
                     .setListener(object : MessageDialog.OnListener {
 
                         override fun onConfirm(dialog: BaseDialog?) {
-                            BrowserActivity.start(getAttachActivity()!!, "https://github.com/getActivity/Donate")
+                            BrowserActivity.start(
+                                getAttachActivity()!!,
+                                "https://github.com/getActivity/Donate"
+                            )
                             toast("AndroidProject 因为有你的支持而能够不断更新、完善，非常感谢支持！")
                             postDelayed({
                                 try {
                                     val intent = Intent(Intent.ACTION_VIEW)
-                                    intent.data = Uri.parse("alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https%3A%2F%2Fqr.alipay.com%2FFKX04202G4K6AVCF5GIY66%3F_s%3Dweb-other")
+                                    intent.data =
+                                        Uri.parse("alipays://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=https%3A%2F%2Fqr.alipay.com%2FFKX04202G4K6AVCF5GIY66%3F_s%3Dweb-other")
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                     startActivity(intent)
                                 } catch (e: ActivityNotFoundException) {
@@ -173,6 +210,9 @@ class MineFragment : TitleBarFragment<HomeActivity>() {
                         }
                     })
                     .show()
+            }
+            R.id.btn_home_ui -> {
+                startActivity(Intent(context, CopyActivity::class.java))
             }
         }
     }

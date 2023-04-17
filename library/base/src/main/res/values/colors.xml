@@ -27,7 +27,16 @@
     <color name="white15">#26FFFFFF</color>
     <color name="white10">#1AFFFFFF</color>
     <color name="white5">#0DFFFFFF</color>
-
+    <color name="text_E7E4EB">#E7E4EB</color>
+    <color name="text_color_FDFDFD">#fdfdfd</color>
+    <color name="text_color_353535">#353535</color>
+    <color name="text_color_9c9c9c">#9c9c9c</color>
+    <color name="text_color_fafafa">#fafafa</color>
+    <color name="text_color_e6e6e6">#e6e6e6</color>
+    <color name="text_color_3D3A44">#3D3A44</color>
+    <color name="text_color_e0e0e0">#e0e0e0</color>
+    <color name="text_color_7D7D7D">#7D7D7D</color>
+    <color name="text_color_E0E0E0">#E0E0E0</color>
     <!-- 黑色 -->
     <color name="black">#FF000000</color>
     <color name="black95">#F2000000</color>

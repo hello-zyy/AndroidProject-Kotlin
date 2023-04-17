@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">安卓技术中台</string>
+    <string name="app_name">多彩艺匠·DIY</string>
 
     <!-- 通用的 -->
     <string name="common_loading">加载中&#8230;</string>
@@ -152,7 +152,7 @@
     <!-- 首页 -->
     <string name="home_exit_hint">再按一次退出</string>
     <string name="home_nav_index">首页</string>
-    <string name="home_nav_found">发现</string>
+    <string name="home_nav_found">添加</string>
     <string name="home_nav_message">消息</string>
     <string name="home_nav_me">我的</string>
 
@@ -254,5 +254,17 @@
     <!-- 拍照和拍摄 -->
     <string name="camera_launch_fail">无法启动相机</string>
     <string name="camera_image_error">目标地址错误</string>
+    <string name="product_info">填写对商品描述哦</string>
+    <string name="product_label">填写标签哦</string>
+    <string name="start_posting">发布商品</string>
+    <string name="add_product_icon">添加商品图片</string>
+    <string name="add_product_info">添加商品</string>
+    <string name="no_have_product">没有商品列表，快去添加吧</string>
+    <string name="cancel">取消</string>
+    <string name="confirm_detele">删除</string>
+    <string name="Set_how_many_pictures_are_displayed_per_row">每行显示几张图片:</string>
+    <string name="set_how_many_columns_to_display">每列显示几张图片:</string>
+    <string name="please_number">请输入数字</string>
+    <string name="confirm_operationn">确认操作</string>
 
 </resources>
