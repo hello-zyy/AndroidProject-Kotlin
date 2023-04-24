@@ -2,7 +2,6 @@ package com.hjq.demo.ui.adapter
 
 import android.content.Context
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,7 +56,9 @@ class HomeProudctAdapter(private var mContext: Context) :
                     .load(url)
                     .error(R.mipmap.launcher_ic)
                     .into(mIconIv)
-                mNameTv.text = name
+                mDescribeTv.text = describe
+                mPriceTv.text = originalPrice
+                mMemberPriceTv.text = this.memberPrice
             }
             rootView.setOnClickListener { mListener?.onClickAction(mProductInfo?.get(position)) }
             rootView.setOnLongClickListener {
@@ -67,7 +68,9 @@ class HomeProudctAdapter(private var mContext: Context) :
         }
 
         private var mIconIv: ImageView = itemView.findViewById(R.id.iv_icon)
-        var mNameTv: TextView = itemView.findViewById(R.id.tv_name)
+        var mDescribeTv: TextView = itemView.findViewById(R.id.tv_describe)
+        var mPriceTv: TextView = itemView.findViewById(R.id.tv_original_price)
+        var mMemberPriceTv: TextView = itemView.findViewById(R.id.tv_member_price)
         var rootView: View = itemView
     }
 

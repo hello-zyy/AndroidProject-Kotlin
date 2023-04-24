@@ -5,6 +5,7 @@
 package com.hjq.demo.ui.utils;
 
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -36,4 +37,13 @@ public class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
         return fragments == null ? 0 : fragments.size();
     }
 
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        List<String> listData = WpkSPUtil.getListData(WpkSPUtil.WPK_PRODUCT_LABEL, String.class);
+        if (!listData.isEmpty() && position < listData.size() - 1) {
+            return listData.get(position);
+        }
+        return super.getPageTitle(position);
+    }
 }

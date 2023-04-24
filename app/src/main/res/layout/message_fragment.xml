@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:leftIcon="@null"
-        app:title="@string/home_nav_message" />
+        app:title="@string/home_price_list" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

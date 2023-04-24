@@ -93,8 +93,8 @@ class HomeFragment2 : TitleBarFragment<HomeActivity>() {
                 localList.add(it)
                 if (localList.size > (UserProductUtils.numberOfHomeImages - 1) || i == proudctList.size - 1) {
                     mCount++
-                    val childFragment = WyzeProfuctInfoFragment(mCount)
-                    fragments.add(childFragment)
+//                    val childFragment = WyzeProfuctInfoFragment(mCount)
+//                    fragments.add(childFragment)
                     localList.clear()
                 }
             }

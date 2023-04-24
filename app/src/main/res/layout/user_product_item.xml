@@ -26,15 +26,41 @@
                 android:src="@mipmap/launcher_ic" />
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/tv_describe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv_icon"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:tag="@string/gotham_book"
                 android:text="name"
-                android:textColor="@color/text_color_353535" />
+                android:textColor="@color/text_color_353535"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_original_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_describe"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:tag="@string/gotham_bold"
+                android:text="name"
+                android:textColor="@color/text_color_353535"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tv_member_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_original_price"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:tag="@string/gotham_bold"
+                android:text="name"
+                android:textColor="@color/red"
+                android:textSize="17sp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -123,4 +123,38 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
+    <style name="TabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!--hint漂移EditText-->
+    <declare-styleable name="WpkHintFlyEditText">
+        <attr name="multiple" format="float" />
+        <attr name="android:hint"/>
+    </declare-styleable>
+    <!--hint漂移EditText-->
+    <declare-styleable name="WpkHintInputView">
+        <attr name="WpkHintInputView_scale" format="float"/>
+        <attr name="WpkHintInputView_hint" format="string" />
+        <attr name="android:hint"/>
+        <attr name="android:maxLength" />
+        <attr name="android:maxLines" />
+        <attr name="android:inputType" />
+        <attr name="android:ellipsize" />
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:textCursorDrawable" />
+        <attr name="WpkHintInputView_padding_left" format="dimension"/>
+        <attr name="WpkHintInputView_padding_right" format="dimension"/>
+        <attr name="WpkHintInputView_bg_color" format="color"/>
+        <attr name="WpkHintInputView_bg_color_focus" format="color"/>
+        <attr name="WpkHintInputView_border_color" format="color" />
+        <attr name="WpkHintInputView_border_color_focus" format="color" />
+        <attr name="WpkHintInputView_border_width" format="dimension" />
+        <attr name="WpkHintInputView_border_width_focus" format="dimension" />
+        <attr name="WpkHintInputView_corner_radius" format="dimension" />
+
+    </declare-styleable>
 </resources>

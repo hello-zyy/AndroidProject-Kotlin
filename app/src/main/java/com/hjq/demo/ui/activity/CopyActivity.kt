@@ -4,6 +4,7 @@ import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import com.hjq.demo.R
 import com.hjq.demo.app.AppActivity
@@ -18,8 +19,8 @@ import com.hjq.demo.ui.utils.WpkSPUtil
  */
 class CopyActivity : AppActivity() {
 
+    private val mCheckIv: ImageView? by lazy { findViewById(R.id.iv_check) }
     private val mEditProductRow: EditText? by lazy { findViewById(R.id.ed_product_row) }
-    private val mEditProductColumns: EditText? by lazy { findViewById(R.id.ed_product_columns) }
     private val mDoneTv: TextView? by lazy { findViewById(R.id.tv_done) }
 
     override fun getLayoutId(): Int {
@@ -33,6 +34,17 @@ class CopyActivity : AppActivity() {
 
 
     private fun intListener() {
+        refreshEditStatus()
+        mCheckIv?.setOnClickListener {
+            val isAllowEdit =
+                WpkSPUtil.getString(WpkSPUtil.WPK_HOME_EDIT_STATUS, UserProductUtils.TRUE_STR)
+            if (TextUtils.equals(UserProductUtils.TRUE_STR, isAllowEdit)) {
+                WpkSPUtil.put(WpkSPUtil.WPK_HOME_EDIT_STATUS, UserProductUtils.FALSE_STR)
+            } else {
+                WpkSPUtil.put(WpkSPUtil.WPK_HOME_EDIT_STATUS, UserProductUtils.TRUE_STR)
+            }
+            refreshEditStatus()
+        }
         mEditProductRow?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 //DO NOTHING
@@ -46,28 +58,23 @@ class CopyActivity : AppActivity() {
                 setNextEnable()
             }
         })
-        mEditProductColumns?.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                //DO NOTHING
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                //DO NOTHING
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                setNextEnable()
-            }
-        })
         mDoneTv?.setOnClickListener {
-            val rowStr = mEditProductRow?.text.toString().trim()
-            val columnsStr = mEditProductColumns?.text.toString().trim()
-            WpkSPUtil.put(WpkSPUtil.WPK_HOME_UI_ROW, rowStr)
-            WpkSPUtil.put(WpkSPUtil.WPK_HOME_UI_COLUMNS, columnsStr)
+            val rowsStr = mEditProductRow?.text.toString().trim()
+            WpkSPUtil.put(WpkSPUtil.WPK_HOME_UI_ROW, rowsStr)
             toast("设置首页UI成功,快去查看吧")
-            mEditProductColumns?.apply {
+            mEditProductRow?.apply {
                 UserProductUtils.hideSoftInput(this);
             }
+        }
+    }
+
+    private fun refreshEditStatus() {
+        val isAllowEdit =
+            WpkSPUtil.getString(WpkSPUtil.WPK_HOME_EDIT_STATUS, UserProductUtils.TRUE_STR)
+        if (TextUtils.equals(UserProductUtils.TRUE_STR, isAllowEdit)) {
+            mCheckIv?.setImageResource(R.drawable.wpk_square_check_icon)
+        } else {
+            mCheckIv?.setImageResource(R.drawable.wpk_square_uncheck_icon)
         }
     }
 
@@ -76,9 +83,8 @@ class CopyActivity : AppActivity() {
     }
 
     fun setNextEnable() {
-        val describeStr = mEditProductColumns?.text.toString().trim()
-        val labelStr = mEditProductRow?.text.toString().trim()
-        val isEnable = !TextUtils.isEmpty(describeStr) && !TextUtils.isEmpty(labelStr)
+        val rowStr = mEditProductRow?.text.toString().trim()
+        val isEnable = !TextUtils.isEmpty(rowStr)
         mDoneTv?.setBackgroundResource(if (isEnable) R.drawable.user_round_btn_purple else R.drawable.user_round_btn_gray)
         mDoneTv?.setTextColor(
             if (isEnable) UserProductUtils.getColor(R.color.white) else UserProductUtils.getColor(

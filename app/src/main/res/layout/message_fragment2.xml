@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.MessageFragment">
+
+    <TextView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="10dp"
+        android:text="@string/home_price_list"
+        android:textColor="@color/text_color_353535"
+        android:textSize="19sp" />
+
+
+    <TextView
+        android:id="@+id/title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/white"
+        android:gravity="bottom|center_horizontal"
+        android:paddingEnd="13dp"
+        android:paddingBottom="13dp"
+        android:text="@string/update_price_list"
+        android:textColor="@color/text_color_353535"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/iv_select_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/rl_add_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar">
+
+        <RelativeLayout
+            android:id="@+id/rl_price_list"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/user_round_default_color">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/iv_add_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/user_icon_add"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_add_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_add_icon"
+                    android:layout_marginTop="10dp"
+                    android:tag="@string/gotham_bold"
+                    android:text="@string/add_price_icon"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

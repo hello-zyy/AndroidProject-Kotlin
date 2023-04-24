@@ -16,11 +16,14 @@ import java.util.Map;
  */
 public class WpkSPUtil {
     private static SharedPreferences sp;
-    public static final String WPK_PRODUCT_LABEL = "wpk_product_label";//商品标签
+    public static final String WPK_PRODUCT_LABEL = "wpk_product_label";//商品大标签
+    public static final String WPK_PRODUCT_SECONDARY_LABEL = "wpk_product_secondary_label";//商品次标签
     public static final String WPK_PRODUCT_INFO = "wpk_product_info";//商品info
 
     public static final String WPK_HOME_UI_ROW = "wpk_home_ui_row";//每行显示几张图片
+    public static final String WPK_PRICE_LIST_IMAGE = "wpk_price_list_image";//价标图片信息
     public static final String WPK_HOME_UI_COLUMNS = "wpk_home_ui_columns";//每列显示几张图片
+    public static final String WPK_HOME_EDIT_STATUS = "wpk_home_edit_status";//是否可以编辑
 
     private WpkSPUtil() {
     }

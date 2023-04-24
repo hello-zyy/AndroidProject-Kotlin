@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_home3_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_fafafa">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:tag="@string/gotham_bold"
+        app:layout_constraintEnd_toStartOf="@+id/iv_search"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabGravity="fill"
+        app:tabIndicator="@drawable/bottom_indicator"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/text_color_353535"
+        app:tabTextAppearance="@style/SplashTheme"
+        app:tabTextColor="#000000" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_search"
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search_ic"
+        app:tint="@color/gray" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/text_color_e6e6e6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_layout" />
+
+
+    <com.hjq.demo.ui.utils.MyViewPager
+        android:id="@+id/vp_page"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/white"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_line" />
+
+    <RelativeLayout
+        android:id="@+id/rl_add_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_no_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:tag="@string/gotham_bold"
+            android:text="@string/no_have_product"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_add_product"
+            android:layout_width="180dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/user_round_btn_purple"
+            android:gravity="center"
+            android:tag="@string/gotham_bold"
+            android:text="@string/add_product_info"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

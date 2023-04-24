@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_fafafa"
+    android:orientation="vertical"
+    tools:context=".ui.activity.SeachActivity">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="搜索商品页面" />
+
+    <RelativeLayout
+        android:id="@+id/rl_seacrh"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@+id/title_bar"
+        android:layout_marginTop="30dp">
+
+        <com.hjq.demo.ui.utils.WpkHintFlyEditText
+            android:id="@+id/ed_search_product"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/wpk_hint_fly_edit_bg"
+            android:gravity="bottom"
+            android:hint="@string/enter_product_name"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:paddingStart="16.5dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="11dp"
+            android:textColor="@color/common_text_color"
+            android:textColorHint="@color/common_text_hint_color"
+            app:multiple="0.5" />
+
+        <TextView
+            android:id="@+id/tv_start_search"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:text="@string/start_search"
+            android:textColor="@color/text_color_353535"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search_proudct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_seacrh"
+        android:layout_marginTop="10dp"
+        android:padding="2.5dp" />
+
+    <TextView
+        android:id="@+id/tv_no_product_found"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_below="@+id/rl_seacrh"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/no_product_found"
+        android:textColor="@color/text_color_353535"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/rl_big_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_seacrh"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_big_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@mipmap/launcher_ic" />
+
+        <TextView
+            android:id="@+id/tv_big_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_big_icon"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:tag="@string/gotham_bold"
+            android:text="name"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_big_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_big_name"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:tag="@string/gotham_bold"
+            android:text="name"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_big_member_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_big_price"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:tag="@string/gotham_bold"
+            android:text="name"
+            android:textColor="@color/red"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

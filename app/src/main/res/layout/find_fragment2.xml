@@ -6,6 +6,197 @@
     android:layout_height="match_parent"
     android:background="@color/text_color_fafafa">
 
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <RelativeLayout
+            android:id="@+id/rl_add_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="100dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_add_product"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="130dp"
+                android:background="@drawable/user_round_default_color">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/iv_add_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/user_icon_add"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_add_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_add_icon"
+                        android:layout_marginTop="10dp"
+                        android:tag="@string/gotham_bold"
+                        android:text="@string/add_product_icon"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_select_icon"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="120dp" />
+
+            <com.hjq.demo.ui.utils.WpkHintFlyEditText
+                android:id="@+id/ed_product_describe"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="350dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/wpk_hint_fly_edit_bg"
+                android:gravity="bottom"
+                android:hint="@string/product_info"
+                android:inputType="text"
+                android:paddingStart="16.5dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="11dp"
+                android:textColor="@color/common_text_color"
+                android:textColorHint="@color/common_text_hint_color"
+                app:multiple="0.5" />
+
+            <com.hjq.demo.ui.utils.WpkHintFlyEditText
+                android:id="@+id/ed_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@+id/ed_product_describe"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/wpk_hint_fly_edit_bg"
+                android:gravity="bottom"
+                android:hint="@string/product_price"
+                android:inputType="text"
+                android:paddingStart="16.5dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="11dp"
+                android:textColor="@color/common_text_color"
+                android:textColorHint="@color/common_text_hint_color"
+                app:multiple="0.5" />
+
+            <com.hjq.demo.ui.utils.WpkHintFlyEditText
+                android:id="@+id/ed_member_price"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@+id/ed_product_price"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/wpk_hint_fly_edit_bg"
+                android:gravity="bottom"
+                android:hint="@string/member_price"
+                android:inputType="text"
+                android:paddingStart="16.5dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="11dp"
+                android:textColor="@color/common_text_color"
+                android:textColorHint="@color/common_text_hint_color"
+                app:multiple="0.5" />
+
+            <com.hjq.demo.ui.utils.WpkHintFlyEditText
+                android:id="@+id/ed_product_label"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@+id/ed_member_price"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/wpk_hint_fly_edit_bg"
+                android:gravity="bottom"
+                android:hint="@string/product_label"
+                android:inputType="text"
+                android:paddingStart="16.5dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="11dp"
+                android:textColor="@color/common_text_color"
+                android:textColorHint="@color/common_text_hint_color"
+                app:multiple="0.5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_product_label"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.hjq.demo.ui.utils.WpkHintFlyEditText
+                android:id="@+id/ed_secondary_tab"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@+id/rv_label"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/wpk_hint_fly_edit_bg"
+                android:gravity="bottom"
+                android:hint="@string/product_small_label"
+                android:inputType="text"
+                android:paddingStart="16.5dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="11dp"
+                android:textColor="@color/common_text_color"
+                android:textColorHint="@color/common_text_hint_color"
+                app:multiple="0.5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_label2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ed_secondary_tab"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_done"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/rv_label2"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/user_round_btn_purple"
+                android:gravity="center"
+                android:tag="@string/gotham_bold"
+                android:text="@string/start_posting"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
     <TextView
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
@@ -19,128 +210,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <RelativeLayout
-        android:id="@+id/rl_add_product"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="130dp"
-        android:background="@drawable/user_round_default_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_add_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/user_icon_add"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_add_product"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_add_icon"
-                android:layout_marginTop="10dp"
-                android:tag="@string/gotham_bold"
-                android:text="@string/add_product_icon"
-                android:textSize="14sp" />
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/iv_select_icon"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="120dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/ed_product_describe"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginEnd="5dp"
-        android:background="@null"
-        android:ellipsize="end"
-        android:focusable="true"
-        android:hint="@string/product_info"
-        android:imeOptions="actionDone"
-        android:paddingStart="16.5dp"
-        android:paddingEnd="0dp"
-        android:singleLine="true"
-        android:textColor="@color/common_text_color"
-        android:textColorHint="@color/common_text_hint_color"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/product_describe_line"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/black10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_product_describe" />
-
-    <EditText
-        android:id="@+id/ed_product_label"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginEnd="5dp"
-        android:background="@null"
-        android:ellipsize="end"
-        android:focusable="true"
-        android:hint="@string/product_label"
-        android:imeOptions="actionDone"
-        android:paddingStart="16.5dp"
-        android:paddingEnd="0dp"
-        android:singleLine="true"
-        android:textColor="@color/common_text_color"
-        android:textColorHint="@color/common_text_hint_color"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_product_describe" />
-
-    <View
-        android:id="@+id/label_line"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/black10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_product_label" />
-
-
-    <TextView
-        android:id="@+id/tv_done"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/user_round_btn_purple"
-        android:gravity="center"
-        android:tag="@string/gotham_bold"
-        android:text="@string/start_posting"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_product_label" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

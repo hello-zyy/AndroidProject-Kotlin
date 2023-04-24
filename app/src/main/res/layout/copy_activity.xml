@@ -13,11 +13,45 @@
         android:layout_height="wrap_content"
         app:title="首页图片设置" />
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginTop="100dp">
+
+        <TextView
+            android:id="@+id/tv_edit_info"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:tag="@string/gotham_bold"
+            android:text="@string/update_info"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="40dp"
+            android:layout_toRightOf="@+id/tv_edit_info"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/wpk_square_check_icon" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black10" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/tv_hint_row"
@@ -52,47 +86,6 @@
 
     <View
         android:id="@+id/product_describe_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black10" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="52dp">
-
-        <TextView
-            android:id="@+id/tv_hint_columns"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:tag="@string/gotham_bold"
-            android:text="@string/set_how_many_columns_to_display"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/ed_product_columns"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="5dp"
-            android:layout_toRightOf="@+id/tv_hint_columns"
-            android:background="@null"
-            android:ellipsize="end"
-            android:focusable="true"
-            android:hint="@string/please_number"
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            android:paddingStart="16.5dp"
-            android:paddingEnd="0dp"
-            android:singleLine="true"
-            android:textColor="@color/common_text_color"
-            android:textColorHint="@color/common_text_hint_color"
-            android:textSize="16sp" />
-    </RelativeLayout>
-
-    <View
-        android:id="@+id/label_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/black10" />
